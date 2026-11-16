@@ -1,0 +1,76 @@
+@import "tailwindcss";
+
+@theme {
+  --font-display: "Syne", sans-serif;
+  --font-sans: "Outfit", sans-serif;
+  --color-ink: #101820;
+  --color-muted: #5b6770;
+  --color-line: #d5dde3;
+  --color-surface: #f3f6f8;
+  --color-panel: #ffffff;
+  --color-accent: #0f766e;
+  --color-accent-hover: #0d9488;
+  --color-accent-soft: #ccfbf1;
+  --color-swatch-1: #134e4a;
+  --color-swatch-2: #1e3a5f;
+  --color-swatch-3: #3f3f46;
+  --color-swatch-4: #7c2d12;
+  --color-swatch-5: #365314;
+}
+
+@keyframes rise-in {
+  from {
+    opacity: 0;
+    transform: translateY(12px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@keyframes fade-in {
+  from {
+    opacity: 0;
+  }
+  to {
+    opacity: 1;
+  }
+}
+
+body {
+  margin: 0;
+  min-height: 100vh;
+  font-family: var(--font-sans);
+  color: var(--color-ink);
+  background:
+    radial-gradient(ellipse 80% 50% at 10% -10%, #d8f3ee 0%, transparent 55%),
+    radial-gradient(ellipse 60% 40% at 100% 0%, #dbe7f3 0%, transparent 50%),
+    var(--color-surface);
+}
+
+.animate-rise {
+  animation: rise-in 0.45s ease-out both;
+}
+
+.animate-fade {
+  animation: fade-in 0.35s ease-out both;
+}
+
+.product-card {
+  transition:
+    transform 0.2s ease,
+    box-shadow 0.2s ease,
+    border-color 0.2s ease;
+}
+
+.product-card:hover {
+  transform: translateY(-4px);
+  border-color: color-mix(in srgb, var(--color-accent) 35%, var(--color-line));
+  box-shadow: 0 14px 28px -18px rgb(16 24 32 / 35%);
+}
+
+.product-card:hover .product-card-cta {
+  background: var(--color-accent);
+  color: white;
+}
